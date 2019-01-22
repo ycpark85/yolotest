@@ -59,14 +59,38 @@ module.exports = function(sequelize, DataTypes) {
         collate: 'utf8_general_ci'
     })
     profile.associate = function(model) {
-        profile.hasMany(model.comments)
-        profile.hasMany(model.conlikes)
-        profile.hasMany(model.letter)
-        profile.hasMany(model.posts)
-        profile.hasMany(model.interfriends)
-        profile.hasMany(model.addfriends)
-        profile.hasMany(model.friends)
-        profile.hasMany(model.invitefris)
+        profile.hasMany(model.comments, {
+            foreignkey: 'userid',
+            onDelete: 'cascade'
+        })
+        profile.hasMany(model.conlikes, {
+            foreignkey: 'userid',
+            onDelete: 'cascade'
+        })
+        profile.hasMany(model.letter, {
+            foreignkey: 'userid',
+            onDelete: 'cascade'
+        })
+        profile.hasMany(model.posts, {
+            foreignkey: 'userid',
+            onDelete: 'cascade'
+        })
+        profile.hasMany(model.interfriends, {
+            foreignkey: 'userid',
+            onDelete: 'cascade'
+        })
+        profile.hasMany(model.addfriends, {
+            foreignkey: 'userid',
+            onDelete: 'cascade'
+        })
+        profile.hasMany(model.friends, {
+            foreignkey: 'userid',
+            onDelete: 'cascade'
+        })
+        profile.hasMany(model.invitefris, {
+            foreignkey: 'userid',
+            onDelete: 'cascade'
+        })
     };
     return profile
 }

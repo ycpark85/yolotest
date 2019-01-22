@@ -33,7 +33,7 @@
     </v-layout>
     <v-layout wrap row>
       <v-flex class="video">
-       <video  controls="controls" controlsList="nodownload" preload="metadata">
+       <video  controls="controls" controlsList="nodownload" preload="auto">
 
     <source :src='"../../server/uploads/admin/video"+content["video"]' type="video/mp4" />
     <source src="Kalimba.webm" type="video/webm" />

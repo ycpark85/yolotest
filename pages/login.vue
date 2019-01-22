@@ -24,10 +24,7 @@
          <v-btn outline color="black" class="aple" type="submit">로그인</v-btn>
       </v-flex>  
    <v-layout align-center justify-center row mt-3>
-   <v-flex xs4>아이디 찾기</v-flex>
-   <v-flex xs1><v-icon>icon-bar</v-icon></v-flex>
-   <v-flex xs4>비밀번호 찾기</v-flex>
-   </v-layout>
+   
 
    <v-layout align-center justify-space-between row mt-3 class="social">
    <v-flex xs4 pa-1 ><img src="../image/naver.png" alt="" ></v-flex>
