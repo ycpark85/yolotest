@@ -46,17 +46,17 @@
               <span>업체 이미지 :</span>
                 </v-flex>
                  <v-flex xs1 @click="$refs.fileimage.click()"><span class="icon-camera"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
-   <input type="file" style="display:none" @change="onFileSelected" ref="fileimage" id="main_img" accept="image/x-png,image/jpeg" multiple>
-   </v-flex>
-   <v-flex xs1>
-       <v-card-media
-       :src="img2"
-       height="120px"
-       >
+                <input type="file" style="display:none" @change="onFileSelected" ref="fileimage" id="main_img" accept="image/x-png,image/jpeg" multiple>
+                </v-flex>
+                <v-flex xs1>
+                <v-card-media
+                :src="img2"
+                height="120px"
+                >
 
-       </v-card-media>
+                </v-card-media>
 
-   </v-flex>
+        </v-flex>
    
              </v-layout>
              <v-layout align-center justify-center row>

@@ -91,6 +91,10 @@ module.exports = function(sequelize, DataTypes) {
             foreignkey: 'userid',
             onDelete: 'cascade'
         })
+        profile.hasMany(model.joincoments, {
+            foreignkey: 'userid',
+            onDelete: 'cascade'
+        })
     };
     return profile
 }

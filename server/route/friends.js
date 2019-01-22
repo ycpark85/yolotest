@@ -43,6 +43,8 @@ router.get('/', (req, res) => {
             })
 
         } else {
+            console.log('-------------soulfriends-------------')
+            console.log(result)
             let soul = result.s_friend.split('/').filter(x => x)
 
             model.profile.findAll({

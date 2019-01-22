@@ -1,9 +1,10 @@
 <template>
-    <v-container class="con">
-         <v-layout align-space-between row>
+    <v-container class="con elevation-1 pa-1">
+        <v-layout align-space-between row class="elevation-1 basic">
+             
             <v-flex xs12>
             <v-card pr-2 flat>
-              <v-card-title class="pname info">
+              <v-card-title class="pname info1 ">
                   <span class="icon-basic"><span class="path1"></span><span class="path2"></span>
               <span class="path3"></span><span class="path4"></span></span>&nbsp;기본정보
               </v-card-title>  
@@ -11,6 +12,8 @@
              </v-card>
             </v-flex>
          </v-layout>
+        <v-layout class="elevation-1">
+         
           <v-layout align-space-between row wrap class="pi-0">
           <v-flex xs6 pa-2 >
              <v-card  class="proimg">
@@ -20,34 +23,35 @@
           </v-flex>
           <v-flex xs4 mt-2 ml-3>
                <v-card  flat>
-                   <div><span class="info">{{name}}({{gender}})</span></div>
-                   <div><span class="info">{{birth}}({{age}})</span></div>
-                   <div><span class="info">{{pro1.blood}}</span></div>
-                   <div><span class="info">{{pro1.locate}}</span></div>
-                   <div><span class="info">{{pro1.job}}</span></div>
-                   <div><span class="info">{{marride}}</span></div>
-                   <div><span class="info">{{couple}}</span></div>
+                   <div><span class="info1">{{name}}({{gender}})</span></div>
+                   <div><span class="info1">{{birth}}({{age}})</span></div>
+                   <div><span class="info1">{{pro1.blood}}</span></div>
+                   <div><span class="info1">{{pro1.locate}}</span></div>
+                   <div><span class="info1">{{pro1.job}}</span></div>
+                   <div><span class="info1">{{marride}}</span></div>
+                   <div><span class="info1">{{couple}}</span></div>
                 </v-card>
           </v-flex>
+        </v-layout>
         </v-layout>
         <v-layout align-space-between row fill-height >
                 
                 <v-flex xs12 >
                     <v-card >
-                        <v-card-text class="pname info"><span class="icon-sosmeil"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span><span>외모</span></v-card-text>
+                        <v-card-text class="pname info1"><span class="icon-sosmeil"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span><span>외모</span></v-card-text>
                     </v-card>
-                    <v-card>
+                    <v-card class="abc">
                         <v-card-title class="apper info">{{pro1.apear}}</v-card-title>
                     </v-card>
                     
                 </v-flex>
             </v-layout>
              <v-layout align-space-between row fill-height >
-                <v-flex xs12 >
-                    <v-card pr-2 >
-                        <v-card-text class="pname info"><span class="icon-soper"><span class="path1"></span><span class="path2"></span></span>성격</v-card-text>
+                <v-flex xs12  >
+                    <v-card pr-2  >
+                        <v-card-text class="pname info1"><span class="icon-soper"><span class="path1"></span><span class="path2"></span></span>성격</v-card-text>
                     </v-card>
-                     <v-card>
+                     <v-card class="back-1">
                         <v-card-title class="apper info">{{pro1.charecter}}</v-card-title>
                     </v-card>
 
@@ -58,9 +62,9 @@
             <v-layout>
                  <v-flex xs12 >
                     <v-card >
-                        <v-card-text class="pname info"><span class="icon-solike"><span class="path1"></span><span class="path2"></span></span><span>관심사</span></v-card-text>
+                        <v-card-text class="pname info1"><span class="icon-solike"><span class="path1"></span><span class="path2"></span></span><span>관심사</span></v-card-text>
                     </v-card>
-                    <v-card>
+                    <v-card class="back-2">
                         <v-card-title class="apper info">{{pro1.interest}}</v-card-title>
                     </v-card>
                 </v-flex>
@@ -68,19 +72,20 @@
                 <v-layout align-space-between row fill-height >
                 <v-flex xs12 >
                     <v-card pl-2 >
-                        <v-card-text class="pname info"><span class="icon-sohobby"><span class="path1"></span><span class="path2"></span></span>관심 활동</v-card-text>
+                        <v-card-text class="pname info1"><span class="icon-sohobby"><span class="path1"></span><span class="path2"></span></span>관심 활동</v-card-text>
                     </v-card>
                 </v-flex>
                 
             </v-layout>   
                
                     <v-card>
-            <v-layout align-space-between row fill-height >
+            <v-layout align-space-between row fill-height class="back-3 apper " >
                 <template v-for="item in habi">
+
                                     
                 <v-flex xs5 class="som"
                 :key="item" >
-                    <v-card class="sof" flat
+                    <v-card class="sof back-3" flat
                     >
                         <span class="info">{{item.title}}</span>
                         
@@ -151,10 +156,32 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .con{
     margin-top: 50px;
-    max-width: 700px;
+    min-width: 350px;
+    max-width: 500px;
+    padding: o;
+}
+.abc{
+    border-radius: 10px;
+    
+     background-color: #f3dd75;
+}
+.back-1{
+ border-radius: 10px;
+    
+    background-color: #f6bdc9;
+}
+.back-2{
+ border-radius: 10px;
+  
+    background-color: #83dbe8;
+}
+.back-3{
+ border-radius: 10px;
+   
+    background-color: #c6e78c;
 }
 .sotop{
     
@@ -176,9 +203,6 @@ export default {
     margin: 10px;
     text-align: center;
 }
-.som{
-    
-}
 .sof2{
     margin: 10px;
    
@@ -198,7 +222,13 @@ export default {
 .info{
     font-weight: bold;
     font-size: 12pt;
-    color: gray;
+    color: white;
 }
+.info1{
+    font-weight: bold;
+    font-size: 12pt;
+    
+}
+
 
 </style>

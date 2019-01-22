@@ -24,6 +24,10 @@ module.exports = function(sequelize, DataTypes) {
         video: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        img: {
+            type: DataTypes.STRING,
+            allowNull: false
         }
 
 
@@ -34,7 +38,18 @@ module.exports = function(sequelize, DataTypes) {
     })
     admin_contents.associate = function(model) {
         admin_contents.belongsTo(model.company)
-        admin_contents.hasMany(model.conlikes)
+        admin_contents.hasMany(model.conlikes, {
+            foreignkey: 'moimcode',
+            onDelete: 'cascade'
+        })
+        admin_contents.hasMany(model.moims, {
+            foreignkey: 'moimcode',
+            onDelete: 'cascade'
+        })
+        admin_contents.hasMany(model.moimjoins, {
+            foreignkey: 'moimcode',
+            onDelete: 'cascade'
+        })
     }
 
     return admin_contents;

@@ -7,15 +7,16 @@
             v-for="user in users"
             :key="user.profileUserid"
             avatar
-            class="elevation-1"
+            class="ac1"
           >
-           <v-list-tile-avatar>
+      
+          <v-list-tile-avatar>
               <img :src='"/server/uploads/user/profile"+user["profile.image"]'>
             </v-list-tile-avatar>
              <v-list-tile-content>
               <v-list-tile-title v-text='user["profile.nickname"] ' class="nickname"></v-list-tile-title>
             </v-list-tile-content>
-           <v-list-tile-action v-if="user['profile.userid']!=userid " class="ac1" @click="addfri(user['profile.userid'])">
+           <v-list-tile-action v-if="user['profile.userid']!=userid " class="ac" @click="addfri(user['profile.userid'])">
                 <v-btn flat icon >
                 <v-icon color="grey lighten-1">icon-f-plus</v-icon>
                 </v-btn>
@@ -36,6 +37,7 @@
                 </v-btn>
               </v-list-tile-action>
           </v-list-tile>
+           
         </v-list>
         </v-layout>
         </v-app>
@@ -118,7 +120,9 @@ export default {
     max-width: 500px;
     margin-top: 70px;
 }
-
+.ac1{
+    box-shadow:0.5px 0.2px 0.2px 0px;
+}
 .vlist{
     width: 100%;
 }

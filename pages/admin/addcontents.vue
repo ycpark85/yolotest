@@ -98,6 +98,24 @@
                
             </v-layout>  
             <v-layout align-center justify-center row>
+                 <v-flex xs2 class="si-1">
+              <span>업체 이미지 :</span>
+                </v-flex>
+                 <v-flex xs1 @click="$refs.fileimage.click()"><span class="icon-camera"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+                <input type="file" style="display:none" @change="onFileSelected" ref="fileimage" id="main_img" accept="image/x-png,image/jpeg" multiple>
+                </v-flex>
+                <v-flex xs1>
+                <v-card-media
+                :src="img2"
+                width="120px"
+                >
+
+                </v-card-media>
+
+                </v-flex>
+   
+             </v-layout>
+            <v-layout align-center justify-center row>
              <v-flex class="" xs1 mt-4> 
         <v-btn type="submit" outline color="black" class="aple">콘텐츠 등록</v-btn>
     </v-flex>
@@ -122,7 +140,8 @@ export default {
         select: { name: '혈액형 선택해 주세요.',companycode:'ascd'},
         companis: [
                    
-                   ]
+                   ],
+        img2:''
                   
          }
      },
@@ -142,12 +161,14 @@ export default {
            console.log(this.select.companycode) 
            let formData =  new FormData();
            let fileDom = document.querySelector('#convideo')
+           let fileDom2 = document.querySelector('#main_img')
            for(var i=0; i<this.chips.length;i++){
                this.tag+='#'+this.chips[i]
            }
            console.log(this.tag)
            console.log(this.ccoment)
            formData.append('convideo',fileDom.files[0])
+           formData.append('thum',fileDom2.files[0])
            formData.append('title',this.title)
            formData.append('adress',this.adress)
            formData.append('coment',this.ccoment)
@@ -172,6 +193,24 @@ export default {
            this.companis = comlist.data.comlist
            console.log(this.companis[0])
         } ,
+           onFileSelected(e){
+          const id = e.target.getAttribute('id')
+            var files = e.target.files || e.dataTransfer.files;
+            this.createImg(id,files[0])
+                
+        },
+          createImg(id, file){
+            const image = new Image
+            const reader = new FileReader
+      
+            reader.onload=(e)=>{
+             
+                  this.img2 = e.target.result
+                  alert(this.img2)
+              
+            }
+            reader.readAsDataURL(file);
+        }
         
      },
       mounted (){

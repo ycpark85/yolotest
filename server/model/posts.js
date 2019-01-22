@@ -1,9 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
     let posts = sequelize.define('posts', {
         postcode: {
-            type: DataTypes.INTEGER(11),
+            type: DataTypes.STRING(255),
             primaryKey: true,
-            autoIncrement: true,
             allowNull: false
         },
         userid: {
@@ -33,8 +32,14 @@ module.exports = function(sequelize, DataTypes) {
         collate: 'utf8_general_ci'
     })
     posts.associate = function(model) {
-        posts.hasMany(model.comments)
-        posts.hasMany(model.likes)
+        posts.hasMany(model.comments, {
+            foreignkey: 'postcode',
+            onDelete: 'cascade'
+        })
+        posts.hasMany(model.likes, {
+            foreignkey: 'postcode',
+            onDelete: 'cascade'
+        })
         posts.belongsTo(model.profile)
     }
     return posts

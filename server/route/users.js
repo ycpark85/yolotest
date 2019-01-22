@@ -5,6 +5,7 @@ const model = require('../model')
 let upload = require('../utils/fileUploads')
 const Sequelize = require('sequelize')
 const cors = require('cors')
+const randomStrin = require('random-string')
 const Op = Sequelize.Op
 
 
@@ -112,6 +113,20 @@ router.post('/likedelete', (req, res, next) => {
 
 router.post('/postinsert', cpup, (req, res, next) => {
     console.log('포스트 등록하자.')
+    var x = randomStrin({
+        length: 3,
+        numeric: false,
+        special: false,
+    })
+    var y = randomStrin({
+        length: 6,
+        numeric: true,
+        letters: false,
+        special: false,
+
+    })
+    x = x.toUpperCase()
+    code = x + y;
     let post_img = ""
     for (var i = 0; i < req.files['pimg'].length; i++) {
         console.log("thum_image:" + req.files['pimg'][i].filename)
@@ -123,6 +138,7 @@ router.post('/postinsert', cpup, (req, res, next) => {
 
     let userid = req.user.u_id
     model.posts.create({
+        postcode: code,
         userid: userid,
         mainimg: postmain,
         postimg: post_img,

@@ -84,7 +84,7 @@
        <v-card flat class="time" >
           <v-card-text class="time1"><div class="phone">문의전화 : {{content['company.phone']}}</div></v-card-text>
         </v-card>
-     </v-flex>
+     </v-flex> 
     
      <v-flex>
        <v-card flat class="time" >

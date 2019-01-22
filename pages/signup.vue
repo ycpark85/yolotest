@@ -104,7 +104,21 @@
       </v-layout>
       <v-layout align-center row wrap>
           <v-flex xs11 >
-         <v-btn outline color="black" class="aple" >이용약관보기</v-btn>
+            <v-dialog v-model="dialog" width="500px">
+         <v-btn outline color="black" class="aple" slot="activator" width="500px" >이용약관보기</v-btn>
+          <v-card>
+        <v-card-title>
+          <span class="headline">개인정보 취급 방침 및 이용약관</span>
+        </v-card-title>
+        <iframe src="../../uploads/yolopolicy.pdf" frameborder="0" width="100%" height="600px"></iframe>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          
+          <v-btn color="green darken-1" flat="flat" @click="dialog = false">닫기</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+        
       </v-flex>
         <v-flex xs11>
          <v-btn outline color="black" class="aple" type="submit">회원가입</v-btn>
@@ -119,6 +133,7 @@ import axios from 'axios'
 export default {
   data(){
       return{
+          dialog: false,
           chek:null,
           gen:null,
           selected1:'',
@@ -166,20 +181,23 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .con{
     min-width: 350px;
     max-width: 500px;
     margin-top: 60px;
 }
 .aple{
-     min-width: 330px;
-    width: 90%;
+    min-width: 330px;
+   
     margin: 0;
     max-width: 500px;
     height: 50px;
 }
-
+.dialog{
+     min-width: 330px;
+      max-width: 500px;
+}
 
 </style>
 

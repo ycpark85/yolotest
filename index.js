@@ -67,6 +67,13 @@ app.get('/server/uploads/admin/video:filename', (req, res) => { //파일을 제�
         res.end(data)
     })
 })
+app.get('/server/uploads/admin/thumimg:filename', (req, res) => { //파일을 제공하는 api임.
+    let file = __dirname + '/server/uploads/admin/thumimg/' + req.params.filename
+    fs.readFile(file, (err, data) => {
+        res.end(data)
+    })
+})
+
 
 
 
@@ -82,6 +89,6 @@ builder.build()
 
 
 
-server.listen(80, () => {
+server.listen(3000, () => {
     console.log('server on 80PORT')
 })

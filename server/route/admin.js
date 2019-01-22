@@ -46,6 +46,8 @@ router.post('/addcontents', cpup, (req, res, next) => {
         console.log('콘텐츠 등록')
         let { title, adress, coment, tag, companycode } = req.body;
         let convideo = req.files['convideo'][0].filename;
+        let thumimg = req.files['thum'][0].filename;
+        console.log(thumimg)
         var code = '';
         var x = randomStrin({
             length: 3,
@@ -68,6 +70,7 @@ router.post('/addcontents', cpup, (req, res, next) => {
             tag: tag,
             exp: coment,
             video: convideo,
+            img: thumimg,
             companyCompanycode: companycode
         }).then((result) => {
             console.log(result)

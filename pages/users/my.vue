@@ -22,10 +22,7 @@
         </v-card >
         <v-card flat class="stm">매일매일 새롭게 시작하는 마음으로</v-card>
         <v-card flat>
-            <v-card-title class="name1">
-                <span>하비</span><span class="number">2</span>
-                <span>프렌즈</span><span class="number">10</span>
-                <span>호감도</span><span class="number">50</span>
+            <v-card-title class="name1">               
             </v-card-title></v-card>
         <v-card flat :to='"/profile/"+profile.userid'><v-btn color="blue" class="probtn">내프로필</v-btn></v-card>
     </v-flex>
@@ -91,7 +88,7 @@
        <v-card flat>
         <v-container grid-list-md fluid >
            <v-layout row wrap >
-                <v-flex
+                <!-- <v-flex
              xs4
             >
               <v-card flat tile>
@@ -110,11 +107,11 @@
                  
                 ></v-card-media>
               </v-card>
-            </v-flex>
-             <v-flex
+            </v-flex> -->
+             <!--<v-flex
              xs4
             >
-              <!-- <v-card flat tile>
+               <v-card flat tile>
                 <v-card-media
                   v-bind:src="require('../../image/questions1.png')"
                   height="80px"
@@ -170,18 +167,19 @@
                   height="80px"
                 ></v-card-media>
               </v-card>
-            </v-flex><v-flex
-             xs3
-            >-->
-              <v-card flat tile>
+            </v-flex>-->
+            <!-- <v-flex
+             xs4>
+            
+              <v-card flat tile to="/myhobby">
                 <v-card-media
                   v-bind:src="require('../../image/myhobby.png')"
                  
                 ></v-card-media>
               </v-card>
-            </v-flex>
+            </v-flex> -->
             <v-flex
-             xs4
+             xs6
             >
               <v-card flat tile to="/users/game">
                 <v-card-media
@@ -192,7 +190,7 @@
               </v-card>
             </v-flex>
             <v-flex
-             xs4
+             xs6
             >
               <v-card flat tile  to="/letter">
                 <v-card-media
@@ -202,7 +200,7 @@
                 ></v-card-media>
               </v-card>
             </v-flex>
-            <v-flex
+            <!-- <v-flex
              xs4
             >
               <v-card flat tile>
@@ -211,7 +209,7 @@
                   
                 ></v-card-media>
               </v-card>
-            </v-flex>
+            </v-flex> -->
             
             
           </v-layout>

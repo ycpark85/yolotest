@@ -1,6 +1,6 @@
 <template>
 
-    <v-container class="con">
+  <v-container class="con">
         <v-tabs    
   >
     <v-tabs-slider color="yellow"></v-tabs-slider>
@@ -31,27 +31,16 @@
               <v-list-tile-avatar>
                 <img :src='"../../server/uploads/user/profile"+rlist["profile.image"]'>
               </v-list-tile-avatar>
-
              
               <v-list-tile-content>
-             <nuxt-link :to='{path: "/letter/receipt/" + rlist["lecode"]}'>   
+                <v-card flat :to='{path: "/letter/receipt/" + rlist["lecode"]}'>
                 <v-list-tile-title >{{rlist["profile.nickname"]}}</v-list-tile-title>
                 <v-list-tile-sub-title >
-                   {{rlist["content"]}}
+                  {{conmasge[rlist['lecode']]}}
                 </v-list-tile-sub-title>
-                </nuxt-link>
-              </v-list-tile-content>
-           
-
-             <div class="ac" v-if="rlist.comfirm!=0">
-                  
-              </div>
-              <div class="ac" v-if="rlist.block!=0">
-                <v-btn  outline color="gray"  small block class="aple" ><v-icon class="f-1">icon-lreject</v-icon> 차단</v-btn>
-        
-              </div>
-        
-                <span class="times"></span>
+                </v-card>
+              </v-list-tile-content>       
+                <span class="times">방금</span>
             </v-list-tile>
           </template>
         </v-list>
@@ -74,10 +63,10 @@
               </v-list-tile-avatar>
 
               <v-list-tile-content>
-                  <nuxt-link :to='{path: "/letter/receipt/" + sendlist["lecode"]}'>   
+                  <v-card flat :to='{path: "/letter/receipt/" + sendlist["lecode"]}'>   
                 <v-list-tile-title >{{sendlist["profile.nickname"]}}</v-list-tile-title>
                  <v-list-tile-sub-title >{{sendlist["content"]}}</v-list-tile-sub-title>
-                  </nuxt-link>
+                  </v-card>
               </v-list-tile-content>
             <!--
              <v-list-tile-action class="ac" v-if="sendlist.comfirm!==0">
@@ -93,7 +82,11 @@
               -->
               
                 <span class="times">방금</span>
-             </v-list-tile>
+              
+             
+             
+
+            </v-list-tile>
           </template>
         </v-list>
         </v-tab-item>
@@ -107,17 +100,32 @@
 </template>
 <script>
 import axios from 'axios'
-  export default {
-    async asyncData () { 
-      let data = await axios.get('/api/v1.0/users/letter')
-     return{
-         sendlists: data.data.sendmsg,
-         reslists:data.data.resmsg
-     }        
+export default {
+    data(){
+        return{
+            reslists:[],
+            sendlists:[],
+            conmasge:{}
+        }
     },
-    
-  }
+    methods: {
+       async lelist(){
+            let data = await axios.get('/api/v1.0/users/letter')
+            this.reslists = data.data.resmsg
+            this.sendlists = data.data.sendmsg
+            console.log(this.reslists)
+           for(var i=0; i<this.reslists.length;i++){
+               this.conmasge[this.reslists[i].lecode] = this.reslists[i].content.replace(/<br>/gi,'')
+               console.log( this.conmasge[this.reslists[i].lecode])
+           }
+       }
+    },
+    async mounted() {
+        this.lelist()
+    },
+}
 </script>
+
 
 <style >
 *{
@@ -189,5 +197,11 @@ import axios from 'axios'
     font-size: 10pt;
     margin-bottom: 2px;
 }
+ li a {
+    text-decoration: none;
+ }
+ .nuxt-link{
+     text-decoration: none;
+ }
 </style>
 

@@ -34,11 +34,12 @@
    <v-flex xs4 pa-1 @click="kakao()" ><img src="../image/kakao.png" alt=""></v-flex>
     
    </v-layout>
-     <v-flex to="/signup">
-         <nuxt-link :to='{path: "/signup"}'>
+     <v-flex >
+     <v-card flat :to='{path:"/signup"}'>
          <v-btn outline color="black" class="aple">회원가입</v-btn>
-         </nuxt-link>
-      </v-flex>  
+     </v-card>
+      </v-flex>
+        
     </form>    
     </v-layout>
    
@@ -69,7 +70,7 @@ export default {
             if(data.status ==201){
                alert('해당아이디는 이미 존재합니다.')
            }else if(data.status==200){
-               alert(data.status)
+               
                 this.$nuxt.$router.replace({path:'/'})
            }
         },
@@ -106,6 +107,9 @@ export default {
     margin: 0;
     max-width: 500px;
     height: 50px;
+
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .f1{
