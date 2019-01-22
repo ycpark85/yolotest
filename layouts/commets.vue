@@ -12,7 +12,7 @@ import cmtbottom from '../components/cmtbottom'
 
    export default {
     components:{
-     cmthead, cmtbottom
+   userheader, cmtbottom
     }
   }
 </script>

@@ -57,7 +57,7 @@
          <v-layout row fill-height wrap mt-4>
             <v-flex xs3 class="pi-1 pi-4">
                 <v-card flat  >
-                    <v-card-title class="pi-2">닉 &nbsp;&nbsp;네&nbsp;&nbsp;임</v-card-title>
+                    <v-card-title class="pi-2">닉 &nbsp;네&nbsp;임</v-card-title>
                 </v-card>
             </v-flex>
             <v-flex xs8 class="pi-1 pi-3 pi-4">
