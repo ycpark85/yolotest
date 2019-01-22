@@ -25,6 +25,7 @@
       </v-flex>  
    <v-layout align-center justify-center row mt-3>
    
+   </v-layout>
 
    <v-layout align-center justify-space-between row mt-3 class="social">
    <v-flex xs4 pa-1 ><img src="../image/naver.png" alt="" ></v-flex>
